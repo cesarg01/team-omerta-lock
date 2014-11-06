@@ -18,9 +18,9 @@ public class PIN
 	/**
 	 * Set the pin.
 	 */
-	public void setPIN()
+	public void setPIN(int pin)
 	{
-		
+		this.pin = pin;
 	}
 	
 	/**
