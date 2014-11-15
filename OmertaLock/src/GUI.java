@@ -19,6 +19,12 @@ public class GUI extends JFrame
 		GUI gui = new GUI();
 	}
 	
+    private static final int FRAME_WIDTH  = 245;
+    private static final int FRAME_HEIGHT = 440;
+    private static final int BUTTON_WIDTH = 50;
+    private static final int BUTTON_HEIGHT = 50;
+    private static final int BUTTON_Y = 260;
+	  
     JButton[] key;
     JButton reset;
     JTextField display;
@@ -53,37 +59,33 @@ public class GUI extends JFrame
             panel.add(key[i]);
             row = (i - 1) / 3;
             col = (i - 1) % 3;
-            key[i].setBounds(
-                20+70*col, 50+70*row, 50, 50);
+            key[i].setBounds(20+70*col, 50+70*row, BUTTON_WIDTH, BUTTON_HEIGHT);
             key[i].addActionListener(keyAL);
         }
         
         // Create and position button 0.
         key[0] = new JButton("0");
         panel.add(key[0]);
-        key[0].setBounds(
-            20+70*1, 50+70*3, 50, 50);
+        key[0].setBounds(20+70*1, BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT);
         key[0].addActionListener(keyAL);
         
      // Create and position button *.
         key[10] = new JButton("*");
         panel.add(key[10]);
-        key[10].setBounds(
-            20, 50+210, 50, 50);
+        key[10].setBounds(20, BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT);
         key[10].addActionListener(keyAL);
         
-     // Create and position button *.
+     // Create and position button #.
         key[11] = new JButton("#");
         panel.add(key[11]);
-        key[11].setBounds(
-            160, 50+210, 50, 50);
+        key[11].setBounds( 160, BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT);
         key[11].addActionListener(keyAL);
        
        
         // Create and configure reset button.
         reset = new JButton("Reset");
         panel.add(reset);
-        reset.setBounds(20, 330, 190, 50);
+        reset.setBounds(20, 330, 190, BUTTON_HEIGHT);
         reset.addActionListener(new ResetDetect());
         
         // Create and configure textfield.
@@ -93,7 +95,7 @@ public class GUI extends JFrame
         display.setEditable(false);
         
         // Set size and show the frame.
-        setSize(245, 440);
+        setSize(FRAME_WIDTH, FRAME_HEIGHT);
         setVisible(true);
     }
     
