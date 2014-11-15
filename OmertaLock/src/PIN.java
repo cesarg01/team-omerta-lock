@@ -12,7 +12,7 @@ public class PIN
 	 */
 	public void setPinLength()
 	{
-		
+		pinLength = 4;
 	}
 	
 	/**
