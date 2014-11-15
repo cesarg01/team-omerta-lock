@@ -20,6 +20,9 @@ public class GUI extends JFrame
 	}
 	
     private static final int FRAME_WIDTH  = 245;
+    
+    /////////////////////HEIGHT for LED suggestion////////////////////////////
+    // Can make the height 540 to add the LED on the bottom.
     private static final int FRAME_HEIGHT = 440;
     private static final int BUTTON_WIDTH = 50;
     private static final int BUTTON_HEIGHT = 50;
@@ -29,6 +32,7 @@ public class GUI extends JFrame
     JButton reset;
     JTextField display;
     JPanel panel;
+    
     
     //@SuppressWarnings("deprecation")
 	public GUI()
