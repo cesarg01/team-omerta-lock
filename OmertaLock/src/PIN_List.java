@@ -3,7 +3,7 @@ import java.util.*;
 public class PIN_List extends PIN
 {
 
-	Hashtable pinList;
+	Hashtable pinList = new Hashtable();
 	
 	
 	public void addPIN()
