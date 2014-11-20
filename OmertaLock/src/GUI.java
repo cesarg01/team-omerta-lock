@@ -8,9 +8,13 @@
     
 import javax.swing.*;
 
-import java.awt.*;
 import java.awt.event.*;
-    
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;    
+
+import sun.applet.Main;
 public class GUI extends JFrame
 {
 	
@@ -19,6 +23,7 @@ public class GUI extends JFrame
 		GUI gui = new GUI();
 	}
 	
+	String sampleKey;
     private static final int FRAME_WIDTH  = 245;
     
     /////////////////////HEIGHT for LED suggestion////////////////////////////
@@ -27,11 +32,13 @@ public class GUI extends JFrame
     private static final int BUTTON_WIDTH = 50;
     private static final int BUTTON_HEIGHT = 50;
     private static final int BUTTON_Y = 260;
+    
+    
 	  
-    JButton[] key;
-    JButton reset;
-    JTextField display;
-    JPanel panel;
+    JButton[] key;			// ARRAY OF KEYS/BUTTONS
+    JButton reset;			// RESET BUTTON
+    JTextField display;		// TEXT DISPLAY
+    JPanel panel;			// JPANEL...SO OBVIOUS.
     
     
     //@SuppressWarnings("deprecation")
@@ -53,6 +60,7 @@ public class GUI extends JFrame
         
         // Create ActionListener for keys.
         KeyDetect keyAL = new KeyDetect();
+        ValidateInput valPut = new ValidateInput();
         
         // Create and position individual 
         // keys with numbers 1 through 9.
@@ -84,6 +92,7 @@ public class GUI extends JFrame
         panel.add(key[11]);
         key[11].setBounds( 160, BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT);
         key[11].addActionListener(keyAL);
+        key[11].addActionListener(valPut);
        
        
         // Create and configure reset button.
@@ -132,5 +141,35 @@ public class GUI extends JFrame
             display.setText("");
         }
     }
+    
+    private class ValidateInput implements ActionListener
+    {
+    	//Clip clip = AudioSystem.getClip();
+    	//AudioInputStream audioIn = AudioSystem.getAudioInputStream(Main.class.getResource("error.wav"));
+    	//clip.open(audioIn);
+    	//clip.start();
+    	
+    	public void actionPerformed(ActionEvent e)
+    	{
+    		if(display.getText().equals("13579"))
+    		{
+    			 java.awt.Toolkit.getDefaultToolkit().beep();
+     			JOptionPane.showMessageDialog(null, "You got the password");
+}
+    		
+    		else
+    		{
+    			java.awt.Toolkit.getDefaultToolkit().beep();
+       		 	java.awt.Toolkit.getDefaultToolkit().beep();
+        		JOptionPane.showMessageDialog(null, "You suck balls");
+
+    		}
+    		
+            display.setText("");
+
+
+    	}
+    }
+    
 }
 
