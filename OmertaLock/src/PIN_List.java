@@ -13,20 +13,31 @@ public class PIN_List extends PIN
 		pinList = new Hashtable<String, String>();
 	}
 	
-	
-	public void addPIN(String key, String value)
+	/**
+	 * Adds a pin to the hashtable.
+	 * @param pinType Type of pin
+	 * @param pin Pin
+	 */
+	public void addPIN(String pinType, String pin)
 	{
-		pinList.put(key, value);
+		pinList.put(pinType, pin);
 	}
 	
+	/*
+	 * Check the pinType
+	 */
 	public void checkPinType()
 	{
 		getPinType();
 	}
 	
-	public void removePIN(String key)
+	/**
+	 * Remove pin
+	 * @param pinType The pin type to be remove.
+	 */
+	public void removePIN(String pinType)
 	{
-		pinList.remove(key);
+		pinList.remove(pinType);
 	}
 	
 	public void hashFunction()
