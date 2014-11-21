@@ -2,13 +2,19 @@ import java.util.*;
 
 public class PIN_List extends PIN
 {
+	Hashtable<String, String> pinList;
 
-	Hashtable pinList = new Hashtable();
 	
-	
-	public void addPIN()
+	public PIN_List()
 	{
-		
+
+		pinList = new Hashtable<String, String>();
+	}
+	
+	
+	public void addPIN(String key, String value)
+	{
+		pinList.put(key, value);
 	}
 	
 	public void checkPinType()
@@ -16,9 +22,9 @@ public class PIN_List extends PIN
 		getPinType();
 	}
 	
-	public void removePIN()
+	public void removePIN(String key)
 	{
-		
+		pinList.remove(key);
 	}
 	
 	public void hashFunction()
