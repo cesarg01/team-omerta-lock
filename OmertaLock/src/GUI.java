@@ -10,11 +10,7 @@ import javax.swing.*;
 
 import java.awt.event.*;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;    
 
-import sun.applet.Main;
 public class GUI extends JFrame
 {
 	
@@ -24,6 +20,7 @@ public class GUI extends JFrame
 	}
 	
 	String sampleKey;
+	private Sound sound;
     private static final int FRAME_WIDTH  = 245;
     
     /////////////////////HEIGHT for LED suggestion////////////////////////////
@@ -50,6 +47,7 @@ public class GUI extends JFrame
         // Local variables.
         int row, col, i;
         
+       // sound = new Sound("sound");
         // Create array of keys.
         key = new JButton[12];
         
@@ -153,14 +151,14 @@ public class GUI extends JFrame
     	{
     		if(display.getText().equals("13579"))
     		{
-    			 java.awt.Toolkit.getDefaultToolkit().beep();
+    			Sound.sound2.play();
      			JOptionPane.showMessageDialog(null, "You got the password");
 }
     		
     		else
     		{
-    			java.awt.Toolkit.getDefaultToolkit().beep();
-       		 	java.awt.Toolkit.getDefaultToolkit().beep();
+    
+    			Sound.sound1.play();
         		JOptionPane.showMessageDialog(null, "You suck balls");
 
     		}
