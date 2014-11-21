@@ -4,7 +4,9 @@ public class PIN_List extends PIN
 {
 	Hashtable<String, String> pinList;
 
-	
+	/**
+	 * Constructor
+	 */
 	public PIN_List()
 	{
 
