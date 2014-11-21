@@ -4,18 +4,32 @@ import java.applet.AudioClip;
 
 public class Beeper {
 		
-		boolean speakerEnabled = false;
+		boolean speakerEnabled = true;
 		
 		public static final Beeper sound1= new Beeper("/error.wav");
 		public static final Beeper sound2= new Beeper("/pass.wav");
 		private AudioClip clip;
 		
 		
+	/**
+	 * If user enters correct pin the speaker will be enabled/disabled
+	 * depending on the speakers current state.
+	 */
+	public void toggleSpeaker()
+	{
+		
+	}
+	/*
+	 * Enable speaker. 
+	 */
 	public void enableSpeaker()
 	{
 		speakerEnabled = true; 
 	}
 	
+	/*
+	 * Disable the speaker.
+	 */
 	public void disableSpeaker()
 	{
 		speakerEnabled = false;
