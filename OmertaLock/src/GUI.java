@@ -20,7 +20,7 @@ public class GUI extends JFrame
 	}
 	
 	String sampleKey;
-	private Sound sound;
+	private Beeper sound;
     private static final int FRAME_WIDTH  = 245;
     
     /////////////////////HEIGHT for LED suggestion////////////////////////////
@@ -151,14 +151,14 @@ public class GUI extends JFrame
     	{
     		if(display.getText().equals("13579"))
     		{
-    			Sound.sound2.play();
+    			Beeper.sound2.play();
      			JOptionPane.showMessageDialog(null, "You got the password");
 }
     		
     		else
     		{
     
-    			Sound.sound1.play();
+    			Beeper.sound1.play();
         		JOptionPane.showMessageDialog(null, "You suck balls");
 
     		}
