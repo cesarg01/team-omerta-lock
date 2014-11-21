@@ -3,11 +3,24 @@ import java.applet.AudioClip;
 //import java.applet.Applet;
 
 public class Beeper {
-
+		
+		boolean speakerEnabled = false;
+		
 		public static final Beeper sound1= new Beeper("/error.wav");
 		public static final Beeper sound2= new Beeper("/pass.wav");
-		
 		private AudioClip clip;
+		
+		
+	public void enableSpeaker()
+	{
+		speakerEnabled = true; 
+	}
+	
+	public void disableSpeaker()
+	{
+		speakerEnabled = false;
+	}
+	
 	public Beeper(String filename)
 	{
 		try
@@ -21,22 +34,25 @@ public class Beeper {
 		}
 	}
 	
-	public void play()
+	public void beep()
 	{
-		try
+		if(speakerEnabled == true)
 		{
-			new Thread()
+			try
 			{
-				public void run()
+				new Thread()
 				{
-					clip.play();
-				}
-			}.start();
-		}
-		
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
+					public void run()
+					{
+						clip.play();
+					}
+				}.start();
+			}
+
+			catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
 		}
 	}
 }
