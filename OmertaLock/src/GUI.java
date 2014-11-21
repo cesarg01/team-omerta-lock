@@ -151,14 +151,14 @@ public class GUI extends JFrame
     	{
     		if(display.getText().equals("13579"))
     		{
-    			Beeper.sound2.play();
+    			Beeper.sound2.beep();
      			JOptionPane.showMessageDialog(null, "You got the password");
 }
     		
     		else
     		{
     
-    			Beeper.sound1.play();
+    			Beeper.sound1.beep();
         		JOptionPane.showMessageDialog(null, "You suck balls");
 
     		}
