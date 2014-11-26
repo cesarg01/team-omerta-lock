@@ -6,7 +6,7 @@ public class Lock {
 	
 	PIN_List pinList;
 	//InputMonitor inputMonitor = new InputMonitor();
-	BatteryMonitor batteryMonitor = new BatteryMonitor();
+	Battery battery = new Battery(); 
 	boolean isLocked = true;
 	boolean isFrozen = false;
 	//LED lockLED = new lockLED();
