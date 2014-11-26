@@ -6,6 +6,7 @@ public class StartUp
 		Lock lock = new Lock();
 		new Battery(); 
 		System.out.println("Hello!"); 
-		while(true); 
+		
+		while(true); // Leave this here at the end. Otherwise, the program terminates before the timers can work.  
 	}	 
 }
