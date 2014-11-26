@@ -1,7 +1,10 @@
 
 public class Lock {
 	
-	PIN_List pins = new PIN_List();
+	private static final PIN DEFAULT_PROGRAMMING_PIN = new PIN(12345);
+	private static final PIN DEFAULT_NORMALUSE_PIN = new PIN(54321); 
+	
+	PIN_List pinList;
 	//InputMonitor inputMonitor = new InputMonitor();
 	BatteryMonitor batteryMonitor = new BatteryMonitor();
 	boolean isLocked = true;
@@ -9,6 +12,21 @@ public class Lock {
 	//LED lockLED = new lockLED();
 	//Beeper lockBeeper = new Beeper();
 	//InputInterpreter
+	
+	/**
+	 * Constructor
+	 */
+	public Lock()
+	{
+		pinList = new PIN_List();
+		loadFactoryDefaults();		 
+	}
+	
+	private void loadFactoryDefaults()
+	{
+		pinList.insert(DEFAULT_PROGRAMMING_PIN);
+		pinList.insert(DEFAULT_NORMALUSE_PIN); 
+	}
 	
 	public void interpretInput()
 	{
