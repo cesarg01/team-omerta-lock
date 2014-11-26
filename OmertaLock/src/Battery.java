@@ -55,4 +55,9 @@ public class Battery extends JFrame
 		int percent = currentPower * 100 / lifeSpan;		
 		return percent; 
 	}
+	
+	public void replace()
+	{
+		currentPower = lifeSpan; 
+	}
 }
