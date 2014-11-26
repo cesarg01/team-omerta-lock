@@ -19,7 +19,14 @@ public class Battery
 		while (currentPower >= 0)
 		{
 			System.out.println(currentPower); 
-			currentPower--; 
+			currentPower--;
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 }
