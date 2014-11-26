@@ -36,7 +36,7 @@ public class PIN_List
 	private static class HashEntry<PIN>
 	{
 		public PIN element; 
-		public boolean deleted; 
+		public boolean isActive; 
 		
 		public HashEntry( PIN pin )
 		{
@@ -46,8 +46,33 @@ public class PIN_List
 		public HashEntry( PIN pin, boolean bool )
 		{
 			element = pin; 
-			deleted = bool; 
+			isActive = bool; 
 		}
+	}
+	
+	public boolean contains( PIN pin )
+	{
+		int currentPos = findPos(pin); 
+		return isActive(currentPos); 
+	}
+	
+	private int findPos( PIN pin )
+	{
+		int currentPos = hash( pin ); 
+		
+		while( hashTable[currentPos] != null && 
+				!hashTable[currentPos].element.equals(pin) )
+		{
+			
+		}
+		
+		return currentPos; 
+		
+	}
+	
+	private boolean isActive( int currentPos )
+	{
+		return hashTable[ currentPos ] != null && hashTable[ currentPos ].isActive;
 	}
 	
 	/**
@@ -73,8 +98,9 @@ public class PIN_List
 		return true; 
 	}
 	
-	public int hash( int pin )
+	public int hash( PIN pin )
 	{
-		return (pin % 99); 
+		int pinNum = pin.getPinNum(); 
+		return (pinNum % 99); 
 	}
 }
