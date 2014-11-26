@@ -82,18 +82,29 @@ public class PIN_List
 	 * 
 	 * @param pin
 	 */
-	public void insert( int pin )
+	public void insert( PIN pin )
 	{
 		// 1. Make sure the PIN isn't already 
 		//    in the hash table. 
 		// 2. Hash the PIN to determine what 
 		//    index to insert it at. 
-		// 3. Assign the PIN to the index.				
+		// 3. Assign the PIN to the index.
+		int currentPos = findPos(pin); 
+		if ( !isActive(currentPos) )
+			return;
+		
+		hashTable[currentPos] = new HashEntry<PIN>(pin, true);
+		
+		if ( ++currentSize > hashTable.length / 2 )
+			rehash(); 
 	}
 	
-	public void remove( int pin )
+	public void remove( PIN pin )
 	{
-	
+		int currentPos = findPos(pin);
+		
+		if ( !isActive(currentPos) )
+			hashTable[currentPos].isActive = false; 
 	}
 	
 	public boolean contains( int pin )
@@ -105,5 +116,17 @@ public class PIN_List
 	{
 		int pinNum = pin.getPinNum(); 
 		return (pinNum % 99); 
+	}
+	
+	private void rehash()
+	{
+		HashEntry<PIN>[] oldHashTable = hashTable; 
+		
+		allocateHashTable( 2 * oldHashTable.length );
+		currentSize = 0; 
+		
+		for ( int k = 0; k < oldHashTable.length; k++ )
+			if( oldHashTable[k] != null && oldHashTable[k].isActive )
+				insert( oldHashTable[k].element ); 
 	}
 }
