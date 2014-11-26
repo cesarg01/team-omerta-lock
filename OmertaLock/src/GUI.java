@@ -33,6 +33,8 @@ public class GUI extends JFrame
     
 	  
     JButton[] key;			// ARRAY OF KEYS/BUTTONS
+    JLabel greenLED; 
+    JLabel redLED;         
     JButton reset;			// RESET BUTTON
     JTextField display;		// TEXT DISPLAY
     JPanel panel;			// JPANEL...SO OBVIOUS.
@@ -47,7 +49,7 @@ public class GUI extends JFrame
         // Local variables.
         int row, col, i;
         
-       // sound = new Sound("sound");
+        // sound = new Sound("sound");
         // Create array of keys.
         key = new JButton[12];
         
