@@ -94,7 +94,7 @@ public class GUI extends JFrame
        
        
         // Create and configure reset button.
-        reset = new JButton("Reset");
+        reset = new JButton("Omerta");
         panel.add(reset);
         reset.setBounds(20, 330, 190, BUTTON_HEIGHT);
         reset.addActionListener(new ResetDetect());
@@ -106,8 +106,10 @@ public class GUI extends JFrame
         display.setEditable(false);
         
         // Set size and show the frame.
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
         setVisible(true);
+        
     }
     
     private class KeyDetect implements ActionListener
