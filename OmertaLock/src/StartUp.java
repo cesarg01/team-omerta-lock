@@ -5,7 +5,6 @@ public class StartUp
 	{
 		Lock lock = new Lock();
 		Battery battery = new Battery(); 
-		battery.useBattery(); 
 		System.out.println("Hello!"); 
 	}	 
 }

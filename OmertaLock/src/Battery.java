@@ -1,8 +1,16 @@
-public class Battery 
+import javax.swing.*; 
+import javax.swing.event.*; 
+import java.awt.*; 
+import java.awt.event.*; 
+
+public class Battery extends JFrame
 {
 	private static final int DEFAULT_LIFESPAN = 100;	
 	int currentPower; 
 	int lifeSpan; 
+	
+	private Timer timer; 
+	public int count; 
 	
 	/**
 	 * Constructor
@@ -20,22 +28,16 @@ public class Battery
 	{
 		this.lifeSpan = lifeSpan;
 		currentPower = lifeSpan; 
-		useBattery(); 
+		timer = new Timer(1000, new TimerListener());
 	}
 	
-	public void useBattery()
+	private class TimerListener implements ActionListener
 	{
-		while (currentPower >= 0)
+		public void actionPerformed(ActionEvent e)
 		{
-			System.out.println(currentPower); 
-			currentPower--;
-			
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			currentPower--; 
+			if (currentPower == 0)
+				timer.stop(); 
 		}
 	}
 	
