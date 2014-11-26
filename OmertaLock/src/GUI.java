@@ -108,8 +108,7 @@ public class GUI extends JFrame
         // Set size and show the frame.
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
-        setVisible(true);
-        
+        setVisible(true);        
     }
     
     private class KeyDetect implements ActionListener
