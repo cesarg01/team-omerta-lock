@@ -14,8 +14,7 @@ public class PIN_List extends PIN
 	{
 		this(DEFAULT_TABLE_SIZE); 
 	}
-	
-	 
+		 
 	private PIN_List( int size )
 	{
 		allocateHashTable(size); 
