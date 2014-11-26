@@ -27,7 +27,7 @@ public class Battery extends JFrame
 	{
 		this.lifeSpan = lifeSpan;
 		currentPower = lifeSpan; 
-		timer = new Timer(10, new TimerListener());		 
+		timer = new Timer(1000, new TimerListener());		 
 		timer.start(); 
 	}
 	
