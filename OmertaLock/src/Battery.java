@@ -43,7 +43,10 @@ public class Battery extends JFrame
 			currentPower--; 			 
 			
 			if (currentPower == 0)
-				timer.stop(); 
+			{
+				timer.stop();
+				System.exit(0); 
+			}
 		}
 	}
 	
