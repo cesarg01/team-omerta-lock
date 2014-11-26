@@ -9,8 +9,7 @@ public class Battery extends JFrame
 	int currentPower; 
 	int lifeSpan; 
 	
-	private Timer timer; 
-	public int count; 
+	private Timer timer; 	
 	
 	/**
 	 * Constructor
@@ -28,14 +27,21 @@ public class Battery extends JFrame
 	{
 		this.lifeSpan = lifeSpan;
 		currentPower = lifeSpan; 
-		timer = new Timer(1000, new TimerListener());
+		timer = new Timer(10, new TimerListener());		 
+		timer.start(); 
 	}
 	
 	private class TimerListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
-		{
-			currentPower--; 
+		{			
+			System.out.println( getCurrentPowerPercent() );
+				
+			if (getCurrentPowerPercent() <= 25)
+				System.out.println("low battery!");
+			
+			currentPower--; 			 
+			
 			if (currentPower == 0)
 				timer.stop(); 
 		}
@@ -43,6 +49,7 @@ public class Battery extends JFrame
 	
 	public int getCurrentPowerPercent()
 	{
-		return currentPower / lifeSpan * 100; 
+		int percent = currentPower * 100 / lifeSpan;		
+		return percent; 
 	}
 }
