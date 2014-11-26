@@ -38,7 +38,7 @@ public class Battery extends JFrame
 			System.out.println( getCurrentPowerPercent() );
 				
 			if (getCurrentPowerPercent() <= 25)
-				System.out.println("low battery!");
+				System.out.println("low battery! blink red and beep");
 			
 			currentPower--; 			 
 			
