@@ -1,16 +1,25 @@
 public class Battery 
 {
-	int lifeSpan = 100;
+	private static final int DEFAULT_LIFESPAN = 100;	
+	int currentPower; 
 	
-	public int getRemainingLifePercent()
+	public Battery()
 	{
-		if(lifeSpan == 0)
-		{
-			System.out.println("Lock is out of battery!");
-			return 0;
-		}
-		return lifeSpan -= 1;
-		
+		this(DEFAULT_LIFESPAN); 
 	}
-
+	
+	public Battery(int lifeSpan)
+	{
+		currentPower = lifeSpan; 
+		useBattery(); 
+	}
+	
+	public void useBattery()
+	{
+		while (currentPower >= 0)
+		{
+			System.out.println(currentPower); 
+			currentPower--; 
+		}
+	}
 }
