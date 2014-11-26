@@ -1,34 +1,30 @@
 
 public class PIN
 {
-	private int pinLength;
+	private static int pinLength;
 	private int pin;
 	private enum pinType {ADMIN, addPIN, deletePIN, toggleBeeper, relockTime};
 	private boolean pinEnabled = true;
 	
+	public PIN(int newPIN)
+	{
+		pin = newPIN; 
+	}
 	
 	/**
 	 * Set the pin length.
 	 */
-	public void setPinLength()
+	public void setPinLength(int length)
 	{
-		pinLength = 4;
+		pinLength = length;
 	}
-	
-	/**
-	 * Set the pin.
-	 */
-	public void setPIN(int pin)
-	{
-		this.pin = pin;
-	}
-	
+		
 	/**
 	 * Enable PIN.
 	 */
 	public void enablePIN()
 	{
-		this.pinEnabled = true;
+		pinEnabled = true;
 	}
 	
 	/**
@@ -36,7 +32,7 @@ public class PIN
 	 */
 	public void disablePIN()
 	{
-		this.pinEnabled = false;
+		pinEnabled = false;
 	}
 	
 	/**
