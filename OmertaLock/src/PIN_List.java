@@ -58,16 +58,19 @@ public class PIN_List
 	
 	private int findPos( PIN pin )
 	{
+		int offset = 1; // linear probing
 		int currentPos = hash( pin ); 
+		int beginningOfHashTable = 0; 
 		
 		while( hashTable[currentPos] != null && 
 				!hashTable[currentPos].element.equals(pin) )
 		{
-			
+			currentPos += offset; 
+			if( currentPos >= hashTable.length )
+				currentPos = beginningOfHashTable; 
 		}
 		
-		return currentPos; 
-		
+		return currentPos; 		
 	}
 	
 	private boolean isActive( int currentPos )
