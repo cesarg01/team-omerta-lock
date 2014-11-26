@@ -1,10 +1,10 @@
 import java.util.*;
 
-public class PIN_List extends PIN
+public class PIN_List
 {
 	private static final int DEFAULT_TABLE_SIZE = 100; 
-	final int DEFAULT_TABLE_VALUE = 0; 
-	int[] hashTable;
+	
+	HashEntry<PIN>[] hashTable;
 	int currentSize; 
 
 	/**
@@ -23,14 +23,31 @@ public class PIN_List extends PIN
 	
 	private void allocateHashTable( int size )
 	{
-		hashTable = new int[size]; 
+		hashTable = new HashEntry[size]; 
 	}
 	
 	private void makeEmpty()
 	{
 		currentSize = 0; 
 		for( int i = 0; i < hashTable.length; i++ )
-			hashTable[ i ] = DEFAULT_TABLE_VALUE; 
+			hashTable[ i ] = null; 
+	}
+	
+	private static class HashEntry<PIN>
+	{
+		public PIN element; 
+		public boolean deleted; 
+		
+		public HashEntry( PIN pin )
+		{
+			this( pin, false ); 
+		}
+		
+		public HashEntry( PIN pin, boolean bool )
+		{
+			element = pin; 
+			deleted = bool; 
+		}
 	}
 	
 	/**
@@ -43,12 +60,7 @@ public class PIN_List extends PIN
 		//    in the hash table. 
 		// 2. Hash the PIN to determine what 
 		//    index to insert it at. 
-		// 3. Assign the PIN to the index. 
-		
-		// 1
-		if ( !contains(pin) )
-			// 2 and 3
-			hashTable[ hash(pin) ] = pin;		
+		// 3. Assign the PIN to the index.				
 	}
 	
 	public void remove( int pin )
@@ -64,15 +76,5 @@ public class PIN_List extends PIN
 	public int hash( int pin )
 	{
 		return (pin % 99); 
-	}
-	
-	
-	
-	/*
-	 * Check the pinType
-	 */
-	public void checkPinType()
-	{
-		getPinType();
 	}
 }
