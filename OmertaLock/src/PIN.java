@@ -47,6 +47,11 @@ public class PIN
 		
 	}
 	
+	public int getPinNum()
+	{
+		return pin; 
+	}
+	
 	/**
 	 * Check if the PIN is equal.
 	 */
