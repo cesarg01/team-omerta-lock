@@ -18,7 +18,15 @@ public class PIN
 	{
 		pinLength = length;
 	}
-		
+	
+	/**
+	 * Get pin length
+	 * @return length of pin
+	 */
+	public int getPinLength()
+	{
+		return pinLength;
+	}
 	/**
 	 * Enable PIN.
 	 */
