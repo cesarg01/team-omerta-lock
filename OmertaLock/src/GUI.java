@@ -21,6 +21,11 @@ public class GUI extends JFrame
 	
 	String sampleKey;
 	private Beeper sound;
+	private PIN_List list = new PIN_List();
+	private Lock lock = new Lock();
+	private PIN pin;
+	private static final int PIN_LENGTH = 5;
+	
     private static final int FRAME_WIDTH  = 245;
     
     /////////////////////HEIGHT for LED suggestion////////////////////////////
@@ -38,6 +43,7 @@ public class GUI extends JFrame
     JButton reset;			// RESET BUTTON
     JTextField display;		// TEXT DISPLAY
     JPanel panel;			// JPANEL...SO OBVIOUS.
+    
     
     
     //@SuppressWarnings("deprecation")
@@ -110,11 +116,16 @@ public class GUI extends JFrame
         // Set size and show the frame.
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
-        setVisible(true);        
+        setVisible(true);     
+        
+        // Set pin length
+        pin.setPinLength(PIN_LENGTH);
+        
     }
     
     private class KeyDetect implements ActionListener
     {
+    	
         // When a button is clicked, append the digit
         // in the caption of the button to the digits
         // in the textfield.
@@ -123,13 +134,15 @@ public class GUI extends JFrame
         // to a JButton to be able to get its text.
         public void actionPerformed(ActionEvent e)
         {
+
             String s;
             
-            if(display.getText().length() < 5)
+            if(display.getText().length() < pin.getPinLength())
             {
                 s = display.getText();
                 s += ((JButton) e.getSource()).getText();
                 display.setText(s);
+                
             }
         }
     }
@@ -152,7 +165,14 @@ public class GUI extends JFrame
     	
     	public void actionPerformed(ActionEvent e)
     	{
-    		if(display.getText().equals("13579"))
+    		int pinNum;
+    		String s = display.getText();
+    		 // PIN
+            pinNum = Integer.parseInt(s);
+            pin = new PIN(pinNum);
+            list.insert(pin);
+            
+    		if(list.contains(pinNum) == true)//display.getText().equals("1357"))
     		{
     			Beeper.sound2.beep();
      			JOptionPane.showMessageDialog(null, "You got the password");
