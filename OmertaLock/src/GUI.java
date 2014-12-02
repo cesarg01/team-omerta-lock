@@ -24,7 +24,7 @@ public class GUI extends JFrame
 	private PIN_List list = new PIN_List();
 	private Lock lock = new Lock();
 	private PIN pin;
-	private static final int PIN_LENGTH = 5;
+	private static final int PIN_LENGTH = 4;
 	
     private static final int FRAME_WIDTH  = 245;
     
@@ -119,7 +119,7 @@ public class GUI extends JFrame
         setVisible(true);     
         
         // Set pin length
-        pin.setPinLength(PIN_LENGTH);
+        //pin.setPinLength(PIN_LENGTH);
         
     }
     
@@ -137,7 +137,7 @@ public class GUI extends JFrame
 
             String s;
             
-            if(display.getText().length() < pin.getPinLength())
+            if(display.getText().length() < PIN_LENGTH)
             {
                 s = display.getText();
                 s += ((JButton) e.getSource()).getText();
