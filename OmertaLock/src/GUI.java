@@ -7,8 +7,8 @@
 // Buttons on a keypad.
     
 import javax.swing.*;
-
 import java.awt.event.*;
+import javax.swing.ImageIcon;
 
 
 public class GUI extends JFrame
@@ -30,7 +30,7 @@ public class GUI extends JFrame
     
     /////////////////////HEIGHT for LED suggestion////////////////////////////
     // Can make the height 540 to add the LED on the bottom.
-    private static final int FRAME_HEIGHT = 440;
+    private static final int FRAME_HEIGHT = 640;
     private static final int BUTTON_WIDTH = 50;
     private static final int BUTTON_HEIGHT = 50;
     private static final int BUTTON_Y = 260;
@@ -112,6 +112,13 @@ public class GUI extends JFrame
         panel.add(display);
         display.setBounds(20, 10, 190, 20);
         display.setEditable(false);
+        
+        ///////// HAVING ISSUES WITH DISPLAYING THE IMAGE //////////////////
+        ImageIcon greenOFF = new ImageIcon("/greenledOFF.png");
+        greenLED = new JLabel(greenOFF);
+        greenLED.setIcon(greenOFF);
+        greenLED.setLocation(240, 600);
+        panel.add(greenLED);
         
         // Set size and show the frame.
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
