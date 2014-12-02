@@ -117,8 +117,9 @@ public class GUI extends JFrame
         ImageIcon greenOFF = new ImageIcon("/greenledOFF.png");
         greenLED = new JLabel(greenOFF);
         greenLED.setIcon(greenOFF);
-        greenLED.setLocation(240, 600);
+        greenLED.setBounds(220, 600, 40, 50);
         panel.add(greenLED);
+        greenLED.repaint();
         
         // Set size and show the frame.
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -182,7 +183,19 @@ public class GUI extends JFrame
     		if(list.contains(pinNum) == true)//display.getText().equals("1357"))
     		{
     			Beeper.sound2.beep();
-     			JOptionPane.showMessageDialog(null, "You got the password");
+    			JOptionPane.showMessageDialog(null, "You got the password");
+    			
+//////////////////// TESTING OF REMOVE /////////////////////////////////////
+    			list.remove(pin);
+    			s = display.getText();
+        		 // PIN
+    			JOptionPane.showMessageDialog(null, "Enter New PIN");
+                pinNum = Integer.parseInt(s);
+                pin = new PIN(pinNum);
+                list.insert(pin);
+    			pin = new PIN(pinNum);
+    			list.insert(pin);
+
 }
     		
     		else
@@ -192,6 +205,12 @@ public class GUI extends JFrame
         		JOptionPane.showMessageDialog(null, "You suck balls");
 
     		}
+    		if(list.contains(pinNum) == true)
+    		{
+    			JOptionPane.showMessageDialog(null, pinNum);
+    			JOptionPane.showMessageDialog(null, "You got it?");
+    		}
+   
     		
             display.setText("");
 
