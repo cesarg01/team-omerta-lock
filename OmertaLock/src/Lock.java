@@ -1,8 +1,8 @@
 
 public class Lock {
 	
-	private static final PIN DEFAULT_PROGRAMMING_PIN = new PIN(12345);
-	private static final PIN DEFAULT_NORMALUSE_PIN = new PIN(54321); 
+	private static final PIN DEFAULT_PROGRAMMING_PIN = new PIN(1234);
+	private static final PIN DEFAULT_NORMALUSE_PIN = new PIN(4321); 
 	
 	PIN_List pinList;
 	//InputMonitor inputMonitor = new InputMonitor();
