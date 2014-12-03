@@ -17,7 +17,7 @@ public class PIN_List
 	private PIN_List( int size )
 	{
 		allocateHashTable(size); 
-		makeEmpty(); 
+		makeEmpty();  
 	}
 	
 	private void allocateHashTable( int size )
