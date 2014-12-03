@@ -1,17 +1,13 @@
 
-public class Lock {
-	
+public class Lock
+{	
+	// Class static data
 	private static final PIN DEFAULT_PROGRAMMING_PIN = new PIN(1234);
-	private static final PIN DEFAULT_NORMALUSE_PIN = new PIN(4321); 
+	private static final PIN DEFAULT_NORMALUSE_PIN = new PIN(4321); 	
+	private CommandPreparer commandPreparer; 
 	
-	PIN_List pinList;
-	//InputMonitor inputMonitor = new InputMonitor();
-	//Battery battery = new Battery(); 
-	boolean isLocked = true;
-	boolean isFrozen = false;
-	//LED lockLED = new lockLED();
-	//Beeper lockBeeper = new Beeper();
-	//InputInterpreter
+	// Instance members
+	private PIN_List pinList; 
 	
 	/**
 	 * Constructor
@@ -19,7 +15,8 @@ public class Lock {
 	public Lock()
 	{
 		pinList = new PIN_List();
-		loadFactoryDefaults();		 
+		loadFactoryDefaults();
+		commandPreparer = new CommandPreparer(); 
 	}
 	
 	private void loadFactoryDefaults()
@@ -28,58 +25,23 @@ public class Lock {
 		pinList.insert(DEFAULT_NORMALUSE_PIN); 
 	}
 	
-	public void interpretInput()
+	public void getNextInput(String nextInput)
 	{
+		commandPreparer.getNextInput(nextInput);
 		
+		if ( commandPreparer.commandIsReady() )
+		{
+			commandPreparer.resetCommandPreparer();
+			executeCommand( commandPreparer.getCommand() ); 
+		}
 	}
 	
-	public boolean unlock()
+	private void executeCommand(PIN command)
 	{
-		return isLocked = false;
-	}
-	
-	public boolean relock()
-	{
-		return isLocked = true;
-	}
-	
-	public void changeMode()
-	{
-		
-	}
-	
-	public void changeRelockTime()
-	{
-		
-	}
-	
-	public boolean freezeLock()
-	{
-		return isFrozen = false;
-	}
-	
-	public boolean unfreezeLock()
-	{
-		return isFrozen = true;
-	}
-	
-	public void checkMode()
-	{
-		
-	}
-	
-	public void resetLock(PIN_List pins)
-	{
-		pins = new PIN_List();
-	}
-	
-	public void restoreSetting()
-	{
-		
-	}
-	
-	public void selfDestruct()
-	{
-		
+		// Check if command is valid
+		if ( !pinList.contains(command) )
+			System.out.println("Invalid PIN!");
+		else
+			System.out.println("Valid PIN!"); 
 	}
 }
