@@ -39,13 +39,18 @@ public class PIN_List
 		
 		public HashEntry( PIN pin )
 		{
-			this( pin, false ); 
+			this( pin, true ); 
 		}
 		
 		public HashEntry( PIN pin, boolean bool )
 		{
 			element = pin; 
 			isActive = bool; 
+		}
+		
+		public String toString()
+		{
+			return element.toString(); 
 		}
 	}
 	
@@ -64,11 +69,10 @@ public class PIN_List
 		while( hashTable[currentPos] != null && 
 				!hashTable[currentPos].element.equals(pin) )
 		{
-			currentPos += offset; 
+			currentPos = currentPos + offset; 
 			if( currentPos >= hashTable.length )
 				currentPos = beginningOfHashTable; 
-		}
-		
+		}		
 		return currentPos; 		
 	}
 	
@@ -89,8 +93,9 @@ public class PIN_List
 		//    index to insert it at. 
 		// 3. Assign the PIN to the index.
 		int currentPos = findPos(pin); 
-		if ( !isActive(currentPos) )
-			return;
+		
+		if ( isActive(currentPos) )
+			return; 
 		
 		hashTable[currentPos] = new HashEntry<PIN>(pin, true);
 		
@@ -100,7 +105,7 @@ public class PIN_List
 	
 	public void remove( PIN pin )
 	{
-		int currentPos = findPos(pin);
+		int currentPos = findPos(pin);		
 		
 		if ( !isActive(currentPos) )
 			hashTable[currentPos].isActive = false; 
@@ -108,13 +113,18 @@ public class PIN_List
 	
 	public boolean contains( int pin )
 	{
-		return true; 
+		PIN tmp = new PIN(pin); 
+		int currentPos = findPos(tmp); 
+		
+		return isActive( currentPos );
 	}
 	
 	public int hash( PIN pin )
 	{
 		int pinNum = pin.getPinNum(); 
-		return (pinNum % 99); 
+		int hash = pinNum % 100; 
+		 
+		return hash; 
 	}
 	
 	private void rehash()

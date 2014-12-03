@@ -14,7 +14,7 @@ import javax.swing.ImageIcon;
 public class GUI extends JFrame
 {
 	
-	public static void main(String arg[])
+	public static void main(String[] args)
 	{
 		GUI gui = new GUI();
 	}
@@ -178,7 +178,7 @@ public class GUI extends JFrame
     		 // PIN
             pinNum = Integer.parseInt(s);
             pin = new PIN(pinNum);
-            list.insert(pin);
+            list.insert(pin);            
             
     		if(list.contains(pinNum) == true)//display.getText().equals("1357"))
     		{

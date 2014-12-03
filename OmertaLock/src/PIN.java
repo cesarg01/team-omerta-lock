@@ -4,11 +4,12 @@ public class PIN
 	private static int pinLength;
 	private int pin;
 	private enum pinType {ADMIN, addPIN, deletePIN, toggleBeeper, relockTime};
-	private boolean pinEnabled = true;
+	private boolean pinEnabled;
 	
 	public PIN(int newPIN)
 	{
 		pin = newPIN; 
+		pinEnabled = true; 
 	}
 	
 	/**
@@ -59,9 +60,12 @@ public class PIN
 	/**
 	 * Check if the PIN is equal.
 	 */
-	public void equals()
+	public boolean equals(PIN pin)
 	{
-		
+		if (this.pin - pin.getPinNum() == 0)
+			return true; 
+		else 
+			return false; 
 	}
 	
 }
