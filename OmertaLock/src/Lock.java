@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 
 public class Lock
 {	
@@ -42,12 +44,12 @@ public class Lock
 		if ( !pinList.contains(command) )
 		{
 			Beeper.sound1.beep();
-			System.out.println("Invalid PIN!");
+			JOptionPane.showMessageDialog(null, "Invalid PIN!");
 		}
 		else
 		{
 			Beeper.sound2.beep();
-			System.out.println("Valid PIN!"); 
+			JOptionPane.showMessageDialog(null, "Valid PIN!");
 		}
 	}
 }
