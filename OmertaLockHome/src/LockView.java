@@ -12,6 +12,9 @@ public class LockView extends JFrame
 	LockPanel lockPanel; 
 	Beeper lockBeeper; 
 	
+	/**
+	 * Constructor
+	 */
 	public LockView()
 	{
 		// Try to make the GUI look cool. 
