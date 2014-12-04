@@ -300,24 +300,6 @@ public class LockPanel extends JPanel
 				red.setIcon(new ImageIcon(blinkColor)); 
 				repaint(); 
 
-				Timer blinkDurationTimer = new Timer(); 
-				blinkDurationTimer.scheduleAtFixedRate(new TimerTask()
-				{
-					int blinkCount = 1; 
-
-					public void run()
-					{
-						red.setIcon(new ImageIcon(LED.RED_OFF)); 
-						repaint(); 
-
-						if (blinkCount++ == numberOfBlinks)
-						{
-							System.out.println("blinkDurationTimer cancelled"); 
-							this.cancel();
-						}
-					}
-				}, LED.BLINK_DURATION, LED.BLINK_WAIT_TIME); 
-
 
 				if (blinkCount++ == numberOfBlinks)
 				{
@@ -326,6 +308,24 @@ public class LockPanel extends JPanel
 				}
 			}
 		}, no_delay, period);
+		
+		Timer blinkDurationTimer = new Timer(); 
+		blinkDurationTimer.scheduleAtFixedRate(new TimerTask()
+		{
+			int blinkCount = 1; 
+
+			public void run()
+			{
+				red.setIcon(new ImageIcon(LED.RED_OFF)); 
+				repaint(); 
+
+				if (blinkCount++ == numberOfBlinks)
+				{
+					System.out.println("blinkDurationTimer cancelled"); 
+					this.cancel();
+				}
+			}
+		}, LED.BLINK_DURATION, LED.BLINK_WAIT_TIME);
 	}
 	
 	private void blinkGreen()
@@ -344,24 +344,6 @@ public class LockPanel extends JPanel
 				green.setIcon(new ImageIcon(blinkColor)); 
 				repaint(); 
 
-				Timer blinkDurationTimer = new Timer(); 
-				blinkDurationTimer.scheduleAtFixedRate(new TimerTask()
-				{
-					int blinkCount = 1; 
-
-					public void run()
-					{
-						green.setIcon(new ImageIcon(LED.GREEN_OFF)); 
-						repaint(); 
-
-						if ( blinkCount++ == numberOfBlinks )
-						{
-							System.out.println("blinkDurationTimer cancelled"); 
-							this.cancel();
-						}
-					}
-				}, LED.BLINK_DURATION, LED.BLINK_WAIT_TIME); 				
-
 				if (blinkCount++ == numberOfBlinks)
 				{
 					this.cancel();
@@ -370,6 +352,24 @@ public class LockPanel extends JPanel
 			}
 
 		}, no_delay, period);
+		
+		Timer blinkDurationTimer = new Timer(); 
+		blinkDurationTimer.scheduleAtFixedRate(new TimerTask()
+		{
+			int blinkCount = 1;			 
+
+			public void run()
+			{
+				green.setIcon(new ImageIcon(LED.GREEN_OFF)); 
+				repaint(); 
+				
+				if ( blinkCount++ == numberOfBlinks )
+				{
+					System.out.println("blinkDurationTimer cancelled"); 
+					this.cancel();
+				}
+			}
+		}, LED.BLINK_DURATION, LED.BLINK_WAIT_TIME);
 	}
 	
 	public void blink(LED blinkDetails)

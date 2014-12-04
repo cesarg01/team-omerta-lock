@@ -14,7 +14,7 @@ public class LED extends JLabel
 	public static final int THREE_BLINKS = 3; 
 	public static final int FIVE_BLINKS = 5; 
 	
-	public static final int BLINK_DURATION = 175; // In milliseconds. 
+	public static final int BLINK_DURATION = 150; // In milliseconds. 
 	public static final int BLINK_WAIT_TIME = 300; // In milliseconds. Must be same time as beeper wait time. 
 	
 	// Instance members
