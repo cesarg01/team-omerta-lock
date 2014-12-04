@@ -390,16 +390,22 @@ public class Lock
 	private void freezeCase()
 	{
 		if (isFrozen == true )
+		{
 			isFrozen = false;
+			System.out.println("lock is now unfrozen."); 
+		}
 		else if (isFrozen == false )
-			isFrozen = true;			
+		{
+			isFrozen = true;
+			System.out.println("lock is now frozen.");
+		}
 	}
 	
 	private void toggleLockCase()
 	{
 		if (isFrozen == true)
 		{
-			System.out.println("lock is frozen!"); 
+			System.out.println("had no effect. lock is frozen!"); 
 			return;
 		}
 		
@@ -427,7 +433,7 @@ public class Lock
 	{
 		if (isFrozen == true)
 		{
-			System.out.println("lock is frozen!"); 
+			System.out.println("had no effect. lock is frozen!"); 
 			return; 
 		}
 			 
