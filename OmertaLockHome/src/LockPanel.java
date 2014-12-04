@@ -13,8 +13,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-
-
 public class LockPanel extends JPanel
 {
 	final JButton one = new JButton("1"); 
@@ -37,7 +35,7 @@ public class LockPanel extends JPanel
 	private LED green; 
 	private LED red; 
 	private int numberOfBlinks;
-	private String blinkColor; 
+	private String blinkColor;	 
 	
 	public LockPanel()
 	{
@@ -314,7 +312,7 @@ public class LockPanel extends JPanel
 
 						if (blinkCount++ == numberOfBlinks)
 						{
-							//System.out.println("blinkDurationTimer cancelled"); 
+							System.out.println("blinkDurationTimer cancelled"); 
 							this.cancel();
 						}
 					}
@@ -323,7 +321,7 @@ public class LockPanel extends JPanel
 
 				if (blinkCount++ == numberOfBlinks)
 				{
-					this.cancel();
+					this.cancel();					
 					//System.out.println("blinkTimer cancelled");
 				}
 			}
@@ -334,6 +332,7 @@ public class LockPanel extends JPanel
 	{
 		long no_delay = 0; 
 		long period = (long) LED.BLINK_WAIT_TIME;
+		
 
 		Timer blink = new Timer(); 
 		blink.scheduleAtFixedRate(new TimerTask()
@@ -357,7 +356,7 @@ public class LockPanel extends JPanel
 
 						if ( blinkCount++ == numberOfBlinks )
 						{
-							//System.out.println("blinkDurationTimer cancelled"); 
+							System.out.println("blinkDurationTimer cancelled"); 
 							this.cancel();
 						}
 					}
@@ -366,7 +365,7 @@ public class LockPanel extends JPanel
 				if (blinkCount++ == numberOfBlinks)
 				{
 					this.cancel();
-					//System.out.println("blinkTimer cancelled");
+					System.out.println("blinkTimer cancelled");
 				}
 			}
 
