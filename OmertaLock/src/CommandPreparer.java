@@ -37,6 +37,12 @@ public class CommandPreparer
 				System.out.println("successful add!"); 
 				pinLengthSoFar++;
 			}
+			// check for pound sign
+			if ( isPound(nextInput) )
+			{			
+				prepareCommand();
+				commandReady = true; 
+			}
 		}
 		else
 		{
@@ -45,12 +51,7 @@ public class CommandPreparer
 			resetCommandPreparer();
 		}
 			
-		// check for pound sign
-		if ( isPound(nextInput) )
-		{			
-			prepareCommand();
-			commandReady = true; 
-		}
+		
 		
 		
 		
