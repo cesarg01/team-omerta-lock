@@ -321,7 +321,7 @@ public class LockPanel extends JPanel
 
 				if (blinkCount++ == numberOfBlinks)
 				{
-					System.out.println("blinkDurationTimer cancelled"); 
+					//System.out.println("blinkDurationTimer cancelled"); 
 					this.cancel();
 				}
 			}
@@ -347,7 +347,7 @@ public class LockPanel extends JPanel
 				if (blinkCount++ == numberOfBlinks)
 				{
 					this.cancel();
-					System.out.println("blinkTimer cancelled");
+					//System.out.println("blinkTimer cancelled");
 				}
 			}
 
@@ -365,7 +365,7 @@ public class LockPanel extends JPanel
 				
 				if ( blinkCount++ == numberOfBlinks )
 				{
-					System.out.println("blinkDurationTimer cancelled"); 
+					//System.out.println("blinkDurationTimer cancelled"); 
 					this.cancel();
 				}
 			}
