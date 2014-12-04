@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 
 public class CommandPreparer 
 {
@@ -10,6 +12,8 @@ public class CommandPreparer
 	private ArrayList<String> commandSoFar; 
 	private boolean commandReady;
 	private PIN finalCommand; 
+	private int PIN_LENGTH = 4;
+	int pinLengthSoFar = 0;
 	
 	public CommandPreparer()
 	{
@@ -23,19 +27,33 @@ public class CommandPreparer
 	
 	private void handleNextInput(String nextInput)
 	{
-		// if number, add to arraylist
-		if ( isNumber(nextInput) )
+		// Check the pin length so far
+		if( pinLengthSoFar < PIN_LENGTH +1)
 		{
-			commandSoFar.add( nextInput ); 
-			System.out.println("successful add!"); 
+			// if number, add to arraylist
+			if ( isNumber(nextInput) )
+			{
+				commandSoFar.add( nextInput ); 
+				System.out.println("successful add!"); 
+				pinLengthSoFar++;
+			}
 		}
-		
+		else
+		{
+			//commandReady = false;
+			JOptionPane.showMessageDialog(null, "PIN length is 4!");
+			resetCommandPreparer();
+		}
+			
 		// check for pound sign
 		if ( isPound(nextInput) )
-		{
+		{			
 			prepareCommand();
 			commandReady = true; 
 		}
+		
+		
+		
 	}
 	
 	private void prepareCommand()
@@ -51,6 +69,13 @@ public class CommandPreparer
 	private boolean isPound(String str)
 	{
 		if ( str.equals(POUND) )
+			return true; 
+		return false; 
+	}
+	
+	private boolean isStar(String str)
+	{
+		if ( str.equals(STAR) )
 			return true; 
 		return false; 
 	}
@@ -75,6 +100,7 @@ public class CommandPreparer
 	public void resetCommandPreparer()
 	{
 		commandSoFar = new ArrayList<String>();
+		pinLengthSoFar = 0;
 		commandReady = false; 		
 	}
 }
