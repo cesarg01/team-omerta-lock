@@ -1,6 +1,8 @@
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.swing.JOptionPane;
+
 public class Lock
 {	
 	// Class static data
@@ -442,7 +444,7 @@ public class Lock
 		long period = 2000; // this number does not matter
 		
 		isLocked = false;
-		System.out.println("unlocked!...");
+		System.out.println("unlocked!...");		
 		
 		Timer relockTimer = new Timer();
 		relockTimer.scheduleAtFixedRate(new TimerTask()
