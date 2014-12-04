@@ -4,7 +4,7 @@ public class Lock
 	// Class static data
 	private static final PIN DEFAULT_PROGRAMMING_PIN = new PIN(1234);
 	private static final PIN DEFAULT_NORMALUSE_PIN = new PIN(4321); 	
-	private CommandPreparer commandPreparer; 
+	private CommandPreparer commandPreparer;  
 	
 	// Instance members
 	private PIN_List pinList; 
@@ -40,8 +40,14 @@ public class Lock
 	{
 		// Check if command is valid
 		if ( !pinList.contains(command) )
+		{
+			Beeper.sound1.beep();
 			System.out.println("Invalid PIN!");
+		}
 		else
+		{
+			Beeper.sound2.beep();
 			System.out.println("Valid PIN!"); 
+		}
 	}
 }
