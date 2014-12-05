@@ -231,7 +231,7 @@ public class Lock
 					
 				case TOGGLE_BEEPER:
 					toggleBeeperCase();
-					System.out.println("beeper toggled"); 
+					JOptionPane.showMessageDialog(null, "Beeper Toggled");
 					break;
 					
 				case CHANGE_RELOCK_TIME:
@@ -269,7 +269,7 @@ public class Lock
 		{
 			setBeepDetails(BAD_PIN_ENTRY_PRO);
 			setBlinkDetails(BAD_PIN_ENTRY_LED_PRO); 
-			System.out.println("Invalid programming command!");
+			JOptionPane.showMessageDialog(null, "Invalid Programming Command!");
 		}
 		else
 		{
@@ -380,7 +380,8 @@ public class Lock
 			public void run()
 			{
 				isLocked = true;
-				System.out.println("locked! ");
+				JOptionPane.showMessageDialog(null, "Locked!");
+				//System.out.println("locked! ");
 								
 				if (count++ == onlyFireOnce)
 					this.cancel();
@@ -393,12 +394,14 @@ public class Lock
 		if (isFrozen == true )
 		{
 			isFrozen = false;
-			System.out.println("lock is now unfrozen."); 
+			JOptionPane.showMessageDialog(null, "Lock is now unfrozen.");
+			//System.out.println("lock is now unfrozen."); 
 		}
 		else if (isFrozen == false )
 		{
 			isFrozen = true;
-			System.out.println("lock is now frozen.");
+			JOptionPane.showMessageDialog(null, "Lock is now frozen.");
+			//System.out.println("lock is now frozen.");
 		}
 	}
 	
@@ -406,19 +409,22 @@ public class Lock
 	{
 		if (isFrozen == true)
 		{
-			System.out.println("had no effect. lock is frozen!"); 
+			JOptionPane.showMessageDialog(null, "Had no effect. Lock is frozen!");
+			//System.out.println("had no effect. lock is frozen!"); 
 			return;
 		}
 		
 		if ( isLocked == true )
 		{
 			isLocked = false;
-			System.out.println("unlocked!"); 
+			JOptionPane.showMessageDialog(null, "Unlocked!");
+			//System.out.println("unlocked!"); 
 		}
 		else if ( isLocked == false )
 		{
 			isLocked = true;
-			System.out.println("locked!"); 
+			JOptionPane.showMessageDialog(null, "Locked!");
+			//System.out.println("locked!"); 
 		}
 		
 		System.out.println("isLocked: " + isLocked); 
@@ -434,7 +440,8 @@ public class Lock
 	{
 		if (isFrozen == true)
 		{
-			System.out.println("had no effect. lock is frozen!"); 
+			JOptionPane.showMessageDialog(null, "Had no effect. Lock is frozen!");
+			//System.out.println("had no effect. lock is frozen!"); 
 			return; 
 		}
 			 
@@ -443,7 +450,8 @@ public class Lock
 		long period = 2000; // this number does not matter
 		
 		isLocked = false;
-		System.out.println("unlocked!...");		
+		JOptionPane.showMessageDialog(null, "Unlocked!");
+		//System.out.println("unlocked!...");		
 		
 		Timer relockTimer = new Timer();
 		relockTimer.scheduleAtFixedRate(new TimerTask()
@@ -454,7 +462,8 @@ public class Lock
 			public void run()
 			{
 				isLocked = true;
-				System.out.println("\nlocked! ");
+				JOptionPane.showMessageDialog(null, "Locked!");
+				//System.out.println("\nlocked! ");
 								
 				if (count++ == onlyFireOnce)
 					this.cancel();
