@@ -3,8 +3,8 @@ public class PIN_List
 {
 	private static final int DEFAULT_TABLE_SIZE = 100; 
 	
-	HashEntry<PIN>[] hashTable;
-	int currentSize; 
+	private HashEntry<PIN>[] hashTable;
+	private int currentSize; 
 
 	/**
 	 * Constructor

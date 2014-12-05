@@ -47,8 +47,7 @@ public class Lock
 	private LED blinkDetails; 
 	private boolean programmingModeEnabled;	
 	private PIN_List pinList;
-	private PIN_List commandList;
-	private PIN_List maintenanceCommList;
+	private PIN_List commandList;	
 	private PINType commandPINType;
 	private PIN currentProgrammingPIN;
 	private int relockTime; 

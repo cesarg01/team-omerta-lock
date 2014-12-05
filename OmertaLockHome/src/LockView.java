@@ -9,8 +9,8 @@ import javax.swing.UIManager.LookAndFeelInfo;
 
 public class LockView extends JFrame
 {
-	LockPanel lockPanel; 
-	Beeper lockBeeper; 
+	private LockPanel lockPanel; 
+	private Beeper lockBeeper; 
 	
 	/**
 	 * Constructor

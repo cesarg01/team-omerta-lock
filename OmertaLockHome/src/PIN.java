@@ -23,7 +23,6 @@ public class PIN
 	private int pinNum;	
 	private PINType pinType;
 	private PINType pinTypeToAdd;
-	private boolean pinEnabled;
 	
 	private LED blinkDetails; 
 	private Beeper beepDetails;
@@ -31,8 +30,7 @@ public class PIN
 	
 	public PIN(int newPIN)
 	{
-		pinNum = newPIN; 
-		pinEnabled = true; 
+		pinNum = newPIN;  
 	}
 	
 	public PIN(int pinNum, PINType pinType)
@@ -147,38 +145,6 @@ public class PIN
 	public LED getBlinkDetails()
 	{
 		return blinkDetails;
-	}
-	
-	/**
-	 * Set the pin length.
-	 */
-	public void setPinLength(int length)
-	{
-		pinLength = length;
-	}
-	
-	/**
-	 * Get pin length
-	 * @return length of pin
-	 */
-	public int getPinLength()
-	{
-		return pinLength;
-	}
-	/**
-	 * Enable PIN.
-	 */
-	public void enablePIN()
-	{
-		pinEnabled = true;
-	}
-	
-	/**
-	 * Disable PIN.
-	 */
-	public void disablePIN()
-	{
-		pinEnabled = false;
 	}
 	
 	/**
