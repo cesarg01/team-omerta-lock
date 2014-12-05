@@ -38,15 +38,21 @@ public class Battery extends JFrame
 	{
 		public void actionPerformed(ActionEvent e)
 		{			
-			System.out.print( getCurrentPowerPercent() + "%" + " " );
+			//JOptionPane.showMessageDialog(null,getCurrentPowerPercent() + "%" + " " );
+			if(getCurrentPowerPercent() % 40 == 0)
+				JOptionPane.showMessageDialog(null, getCurrentPowerPercent() + "%" + " " ,"Warning", JOptionPane.WARNING_MESSAGE, null);
 				
 			if (getCurrentPowerPercent() <= LOW_BATTERY_LIFE_THRESHOLD)
-				System.out.print("low battery! \n");
+			{
+				if(getCurrentPowerPercent() % 10 == 0)
+					JOptionPane.showMessageDialog(null, "Low Battery! \n", "Warning", JOptionPane.WARNING_MESSAGE, null);
+			}
 			
 			currentPower--; 			 
 			
 			if (currentPower == 0)
 			{
+				JOptionPane.showMessageDialog(null, "Out of Battery!", "Warning", JOptionPane.WARNING_MESSAGE, null);
 				timer.stop();
 				System.exit(0); 
 			}
