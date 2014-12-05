@@ -137,6 +137,7 @@ public class LockPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				Beeper.keyPress.beep();
 				String id = one.getText(); 
 				fireInputEvent(new InputEvent(this, id)); 
 				//System.out.println(id); 
@@ -147,6 +148,7 @@ public class LockPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				Beeper.keyPress.beep();
 				String id = two.getText(); 
 				fireInputEvent(new InputEvent(this, id)); 
 				//System.out.println(id); 
@@ -157,6 +159,7 @@ public class LockPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				Beeper.keyPress.beep();
 				String id = three.getText(); 
 				fireInputEvent(new InputEvent(this, id)); 
 				//System.out.println(id); 
@@ -167,6 +170,7 @@ public class LockPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				Beeper.keyPress.beep();
 				String id = four.getText(); 
 				fireInputEvent(new InputEvent(this, id)); 
 				//System.out.println(id); 
@@ -177,6 +181,7 @@ public class LockPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				Beeper.keyPress.beep();
 				String id = five.getText(); 
 				fireInputEvent(new InputEvent(this, id)); 
 				//System.out.println(id); 
@@ -187,6 +192,7 @@ public class LockPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				Beeper.keyPress.beep();
 				String id = six.getText(); 
 				fireInputEvent(new InputEvent(this, id)); 
 				//System.out.println(id); 
@@ -197,6 +203,7 @@ public class LockPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				Beeper.keyPress.beep();
 				String id = seven.getText(); 
 				fireInputEvent(new InputEvent(this, id)); 
 				//System.out.println(id); 
@@ -207,6 +214,7 @@ public class LockPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				Beeper.keyPress.beep();
 				String id = eight.getText(); 
 				fireInputEvent(new InputEvent(this, id)); 
 				//System.out.println(id); 
@@ -217,6 +225,7 @@ public class LockPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				Beeper.keyPress.beep();
 				String id = nine.getText(); 
 				fireInputEvent(new InputEvent(this, id)); 
 				//System.out.println(id); 
@@ -227,6 +236,7 @@ public class LockPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				Beeper.keyPress.beep();
 				String id = zero.getText(); 
 				fireInputEvent(new InputEvent(this, id)); 
 				//System.out.println(id); 
@@ -257,6 +267,7 @@ public class LockPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				Beeper.keyPress.beep();
 				String id = omerta.getText(); 
 				fireInputEvent(new InputEvent(this, id)); 
 				//System.out.println(id); 

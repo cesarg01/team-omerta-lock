@@ -8,6 +8,7 @@ public class Beeper {
 		
 		public static final Beeper sound1= new Beeper("/error.wav");
 		public static final Beeper sound2= new Beeper("/pass.wav");
+		public static final Beeper keyPress= new Beeper("/keypress.wav");
 		private AudioClip clip;
 		
 		
