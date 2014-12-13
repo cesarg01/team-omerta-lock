@@ -4,7 +4,10 @@ import java.applet.AudioClip;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
+/**
+ * Beeper class for the lock.
+ *
+ */
 public class Beeper 
 {
 	// "global members" 		
@@ -28,26 +31,48 @@ public class Beeper
 	private AudioClip clip;	
 	private int numberOfBeeps; 	
 	
+	/**
+	 * Constructor
+	 */
 	public Beeper() 
 	{
 		this(GOOD_BEEP, ONE_BEEP, true);
 	}		
 	
+	/**
+	 * Constructor
+	 * @param numberOfBeeps the times the beeper beeps
+	 */
 	public Beeper(int numberOfBeeps)
 	{
 		this(GOOD_BEEP, numberOfBeeps, true); 
 	}
 	
+	/**
+	 * Constructor
+	 * @param speakerEnabled speaker able to beep
+	 */
 	public Beeper(boolean speakerEnabled)
 	{
 		this(GOOD_BEEP, ONE_BEEP, false);
 	}
 	
+	/**
+	 * Constructor
+	 * @param filename the sound file
+	 * @param numberOfBeeps the number of beeps
+	 */
 	public Beeper(String filename, int numberOfBeeps)
 	{
 		this(filename, numberOfBeeps, true); 
 	}
 	
+	/**
+	 * Constructor
+	 * @param filename the sound file
+	 * @param numberOfBeeps the number of beeps
+	 * @param speakerEnabled the speaker 
+	 */
 	public Beeper(String filename, int numberOfBeeps, boolean speakerEnabled)
 	{
 		try
@@ -65,6 +90,10 @@ public class Beeper
 		this.speakerEnabled = speakerEnabled;
 	}
 	
+	/**
+	 * The number of beeps
+	 * @return the number of beeps
+	 */
 	public int getNumberOfBeeps()	
 	{
 		return numberOfBeeps; 
