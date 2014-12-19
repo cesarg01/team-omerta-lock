@@ -3,6 +3,10 @@ import javax.swing.event.*;
 import java.awt.*; 
 import java.awt.event.*; 
 
+/**
+ * Class that simulates a battery on a lock. 
+ *
+ */
 public class Battery extends JFrame
 {
 	public static final int LOW_BATTERY_LIFE_THRESHOLD = 30; 
